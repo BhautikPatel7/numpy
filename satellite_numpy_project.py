@@ -43,8 +43,8 @@ data = np.random.normal(size=Shape, loc=Mean, scale=Std)
 nan_count = 500
 outlier_count = 50
 
-indices_to_nan = np.random.choice(data.size, nan_count, replace=False)
-indicase_to_outlier = np.random.choice(data.size, outlier_count, replace=False)
+indices_to_nan = np.random.choice(data.size, nan_count, replace=True)
+indicase_to_outlier = np.random.choice(data.size, outlier_count, replace=True)
 
 data.ravel()[indices_to_nan] = np.nan
 data.ravel()[indicase_to_outlier] = 999
@@ -61,13 +61,26 @@ print(nan_check.shape)
 
 # count = np.count_nonzero(nan_check)
 
-layers, rows, cols = np.where(nan_check)
+# layers, rows, cols = np.where(nan_check)
 
-print(len(layers))
-print(len(rows))
-print(len(cols))
+nan_index = np.argwhere(nan_check)
 
-print(layers)
-print(rows)
-print(cols)
+# print(len(layers))
+# print(len(rows))
+# print(len(cols))
+
+print(nan_index[0][0])
+# print(rows)
+# print(cols)
 # print(f"The number of True values is: {count}")
+
+print(data[nan_index[0][0]][nan_index[0][1]][nan_index[0][2]])
+
+data[nan_index[0][0]][nan_index[0][1]][nan_index[0][2]] = 15
+
+print(data[nan_index[0][0]][nan_index[0][1]][nan_index[0][2]])
+# for i, data in enumerate(nan_index):
+#     # print(f"{i} {data}")
+#     for j , indata in enumerate(data):
+#         print(f"{j} + {indata}")
+#     # print(data)
