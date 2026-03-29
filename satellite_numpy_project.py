@@ -43,8 +43,8 @@ data = np.random.normal(size=Shape, loc=Mean, scale=Std)
 nan_count = 500
 outlier_count = 50
 
-indices_to_nan = np.random.choice(data.size, nan_count, replace=True)
-indicase_to_outlier = np.random.choice(data.size, outlier_count, replace=True)
+indices_to_nan = np.random.choice(data.size, nan_count, replace=False)
+indicase_to_outlier = np.random.choice(data.size, outlier_count, replace=False)
 
 data.ravel()[indices_to_nan] = np.nan
 data.ravel()[indicase_to_outlier] = 999
@@ -64,7 +64,7 @@ print(nan_check.shape)
 # layers, rows, cols = np.where(nan_check)
 
 nan_index = np.argwhere(nan_check)
-
+print(nan_index, "Nan index")
 # print(len(layers))
 # print(len(rows))
 # print(len(cols))
@@ -84,3 +84,43 @@ print(data[nan_index[0][0]][nan_index[0][1]][nan_index[0][2]])
 #     for j , indata in enumerate(data):
 #         print(f"{j} + {indata}")
 #     # print(data)
+
+col_mean = np.nanmean(data, axis=0)
+col_std = np.nanstd(data, axis=0)
+# print(col_std) 
+print(col_std.shape) 
+# print(col_mean)
+print(col_mean.shape)
+# 
+
+# for h in range(data.shape[1]):        # 24 hours
+#     for f in range(data.shape[2]):    # 5 features
+        
+#         column = data[:, h, f]       # all 365 days
+        
+#         mean_val = np.nanmean(column)
+        
+#         for d in range(data.shape[0]):   # 365 days
+#             if np.isnan(data[d][h][f]):
+#                 data[d][h][f] = mean_val
+                
+                
+
+nan_indices = np.where(np.isnan(data))
+# 
+
+indices = np.where(col_std > 5)
+for h in range(data.shape[1]):        # 24 hours
+    for f in range(data.shape[2]):    # 5 features
+        
+        col = data[:, h, f]
+        
+        median_val = np.nanmedian(col)
+        
+        # Replace NaN
+        for d in range(data.shape[0]):
+            if np.isnan(data[d][h][f]):
+                data[d][h][f] = median_val
+# print(nan_indices.count())
+
+data[nan_indices] = col_mean[nan_indices[1], nan_indices[2]]
