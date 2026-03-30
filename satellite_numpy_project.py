@@ -110,11 +110,15 @@ nan_indices = np.where(np.isnan(data))
 # 
 
 indices = np.where(col_std > 5)
+print(data.shape[1])
+print(data.shape[2])
+print(data.shape[0])
+# print(indices)
 for h in range(data.shape[1]):        # 24 hours
     for f in range(data.shape[2]):    # 5 features
         
         col = data[:, h, f]
-        
+        # print(col)
         median_val = np.nanmedian(col)
         
         # Replace NaN
@@ -124,3 +128,30 @@ for h in range(data.shape[1]):        # 24 hours
 # print(nan_indices.count())
 
 data[nan_indices] = col_mean[nan_indices[1], nan_indices[2]]
+
+
+# Step 4
+
+# Convert to (360, 120)c
+
+data_2d = data.reshape(data.shape[0], -1)
+print(data_2d[0])
+
+flatten = data.flatten()
+print(flatten.shape)
+print(flatten)
+
+data = data.reshape(365,24,5)
+print(data.shape)
+
+swapped_arr = np.swapaxes(data, 1, 2)
+print("\nSwapped array shape:", swapped_arr.shape)
+print(swapped_arr)
+
+
+transposed_arr = data.T
+print(transposed_arr.shape)
+
+
+
+# step 6
