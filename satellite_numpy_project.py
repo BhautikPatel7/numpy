@@ -181,3 +181,26 @@ print(dat_with_max_temp)
 
 # step 6
 
+day_200 = data[199]
+sort_200 = np.sort(day_200)
+print(sort_200)
+
+
+temp = data[:, :, 0] 
+print(temp.shape)
+
+flat_indices = np.argsort(temp, axis=None)[-10:]
+print(flat_indices)
+top_indices = np.unravel_index(flat_indices, temp.shape)
+print(top_indices)
+for d, h in zip(top_indices[0], top_indices[1]):
+    print(f"Day {d}, Hour {h}, Temp = {temp[d, h]}")
+    
+    
+sensor_avg = np.nanmean(data, axis=(0, 1))
+print(sensor_avg)
+
+rank_indices = np.argsort(sensor_avg)[::-1]
+
+for rank, sensor_id in enumerate(rank_indices, start=1):
+    print(f"Rank {rank}: Sensor {sensor_id}, Avg Temp = {sensor_avg[sensor_id]:.2f}")
