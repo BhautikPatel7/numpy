@@ -41,7 +41,7 @@ data = np.random.normal(size=Shape, loc=Mean, scale=Std)
 # print(data)
 
 nan_count = 500
-outlier_count = 50
+outlier_count = 0
 
 indices_to_nan = np.random.choice(data.size, nan_count, replace=False)
 indicase_to_outlier = np.random.choice(data.size, outlier_count, replace=False)
@@ -139,14 +139,14 @@ print(data_2d[0])
 
 flatten = data.flatten()
 print(flatten.shape)
-print(flatten)
+# print(flatten)
 
 data = data.reshape(365,24,5)
 print(data.shape)
 
 swapped_arr = np.swapaxes(data, 1, 2)
 print("\nSwapped array shape:", swapped_arr.shape)
-print(swapped_arr)
+# print(swapped_arr)
 
 
 transposed_arr = data.T
@@ -154,4 +154,30 @@ print(transposed_arr.shape)
 
 
 
+# step 5
+mean_value = np.mean(data)
+# print(mean_value)
+
+
+daily_avg = np.mean(data[:, :, 0], axis=1)
+# print(daily_avg)
+hourly_avg = np.nanmean(data[:, :, 0], axis=0)
+# print(hourly_avg)
+
+
+sensor_yearly_avg = np.nanmean(data, axis=(0, 1))
+# print(sensor_yearly_avg)
+
+
+global_min_func = np.min(data)
+global_max_func = np.max(data)
+
+print(global_max_func)
+print(global_min_func)
+
+dat_with_max_temp = np.where(data == global_max_func)
+print(dat_with_max_temp)
+
+
 # step 6
+
