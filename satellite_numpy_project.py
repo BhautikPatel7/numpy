@@ -249,3 +249,20 @@ print(q1_q2.shape)
 
 # result = np.concatenate((q1, q2), axis=2)
 # print(result.shape)
+
+one_day = data[0][0]
+cov_matrix = np.cov(one_day)
+print(cov_matrix)
+
+correlation_matrix = np.corrcoef(one_day)
+print(corrected_data)
+
+
+# eigenvalues, eigenvectors = np.linalg.eig(data[0])
+
+# print(Da)
+
+cov_matrix = np.cov(data_2d, rowvar=False)
+eigenvalues, eigenvectors = np.linalg.eig(cov_matrix)
+print(eigenvalues)
+print(eigenvectors)
