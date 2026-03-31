@@ -286,3 +286,13 @@ aee_sqare_np = arr_random ** 2
 end = time.time()
 execution_time = end - start
 print(execution_time)
+
+
+
+
+a = np.arange(10) # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+b = a[2:7].copy()
+
+b[0] = 99         # Modify the first element of b
+print(a)  
+print(b)
