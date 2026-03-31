@@ -1,5 +1,5 @@
 import numpy as np
-
+import time
 # Create a 3D array
 # list_3d = [
 #     [[1,2], [3,4]]
@@ -266,3 +266,23 @@ cov_matrix = np.cov(data_2d, rowvar=False)
 eigenvalues, eigenvectors = np.linalg.eig(cov_matrix)
 print(eigenvalues)
 print(eigenvectors)
+
+
+arr_random = np.random.rand(10_000_000)
+arr_rand_sqare = []
+start = time.time()
+
+for arr in arr_random:
+    arr_rand_sqare.append(arr*arr)
+    
+end = time.time()
+execution_time = end - start
+print(execution_time)
+
+
+arr_rand_sqare_np = []
+start = time.time()
+aee_sqare_np = arr_random ** 2
+end = time.time()
+execution_time = end - start
+print(execution_time)
