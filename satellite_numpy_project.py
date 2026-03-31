@@ -204,3 +204,48 @@ rank_indices = np.argsort(sensor_avg)[::-1]
 
 for rank, sensor_id in enumerate(rank_indices, start=1):
     print(f"Rank {rank}: Sensor {sensor_id}, Avg Temp = {sensor_avg[sensor_id]:.2f}")
+    
+    
+    
+# Step 7
+
+
+sensor_data = data[:,:,0]
+print(sensor_data)
+
+
+for i in range(5):
+    sensor_wise_mean = np.mean(sensor_data[i])
+    print(sensor_wise_mean)
+# sensor_wise_mean = np.mean(sensor_data[0])
+
+
+normalized_col = (data - data.min(axis=(0,1))) / (data.max(axis=(0,1)) - data.min(axis=(0,1)))
+print(normalized_col)
+
+correction_factor = np.ones((5))
+print(correction_factor)
+
+
+corrected_data = data + correction_factor
+# print(corrected_data)
+
+
+
+
+# q1 = data[:92]
+# # q2 = data[93:184]
+# q3 = data[185:276]
+# q4 = data[276:]
+
+
+quarters = np.array_split(data, 4)
+q1, q2, q3, q4 = quarters
+
+
+q1_q2 = np.concatenate((q1, q2), axis=0)
+print(q1_q2.shape)
+
+
+# result = np.concatenate((q1, q2), axis=2)
+# print(result.shape)
