@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
 print("Soemthing")
 df = pd.read_csv("sales.csv")
@@ -8,9 +9,7 @@ df = pd.read_csv("sales.csv")
 # print(df.describe())
 print(df.columns)
 print(df.shape)
-# print(df.info())
-
-
+# print(df.info()
 
 # df["quantity"].fillna(1, inplace=True)
 df.dropna(inplace=True)
@@ -96,3 +95,51 @@ print(df.groupby(["city", "category"])["total_amount"].sum())
 print(df.groupby("category")["total_amount"].agg(["sum", "mean", "count"]))
 
 df.groupby("category")["total_amount"].sum().reset_index()
+
+
+product_sales = df.groupby("product")["total_amount"].sum()
+# product_sales.sort_values(ascending=False)
+product_sales.nlargest(5)
+print(product_sales.nlargest(5))
+
+
+top = df.groupby("product")["total_amount"].sum().nlargest(5)
+print(top)
+
+product_df = pd.read_csv("product_details.csv")
+df = df.merge(product_df, on="product", how="left")
+
+df["profit"] = df["price"] - df["cost_price"]
+
+print(df.head())
+
+
+pd.pivot_table(
+    df,
+    values="total_amount",
+    index="city",
+    columns="category",
+    aggfunc="sum",
+    fill_value=0
+)
+
+pd.pivot_table(df, values="total_amount", index="city", columns="category", aggfunc="mean", fill_value=0)
+print(pd.pivot_table(df, values="total_amount", index="city", columns="category", aggfunc="count",  ))
+
+
+df.groupby("month")["total_amount"].sum().plot(kind="line")
+# plt.title("Montyh Sales Tredns")
+# plt.xlabel("Month")
+# plt.ylabel("Total Sales")
+
+
+# df.groupby("category")["total_amount"].sum().plot(kind="bar")
+# plt.title("Sales by Category")
+
+df.groupby("product")["total_amount"].sum().nlargest(5).plot(kind="bar")
+plt.title("Top 5 Products")
+
+df.groupby("payment_method")["total_amount"].sum().plot(kind="pie", autopct="%1.1f%%")
+plt.title("Payment Method Distribution")
+
+plt.show()

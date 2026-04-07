@@ -49,6 +49,7 @@ groupby()
 sum(), mean(), count()
 Example:
 df.groupby("category")["total_amount"].sum()
+
 🔄 TASK 7 — Sorting & Ranking
 Concepts:
 sort_values()
@@ -67,6 +68,9 @@ Create another dataset:
 product, supplier, cost_price
 
 ✔ Merge with main dataset
+
+
+
 
 📉 TASK 9 — Pivot Tables
 Concepts:
