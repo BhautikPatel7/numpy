@@ -1,0 +1,21 @@
+order_id,date,customer,city,product,category,price,quantity,payment_method
+1001,2025-01-05,Rahul Sharma,Ahmedabad,Laptop,Electronics,55000,1,Credit Card
+1002,2025-01-06,Priya Patel,Surat,Smartphone,Electronics,20000,,UPI
+1003,2025-01-07,Amit Shah,Ahmedabad,Shoes,Fashion,2500,3,Cash
+1004,2025-01-08,Neha Jain,Mumbai,Watch,Fashion,5000,1,Debit Card
+1005,2025-01-09,Karan Mehta,Delhi,Headphones,Electronics,1500,2,UPI
+1006,2025-01-10,Riya Desai,Ahmedabad,Tablet,Electronics,18000,1,Credit Card
+1007,2025-01-11,Vikas Singh,Bangalore,T-shirt,Fashion,800,4,Cash
+1008,2025-01-12,Anjali Verma,Surat,Refrigerator,Appliances,30000,1,Debit Card
+1009,2025-01-13,Manoj Kumar,Delhi,Microwave,Appliances,12000,1,UPI
+1010,2025-01-14,Sneha Kapoor,Mumbai,Jeans,Fashion,2000,2,Credit Card
+1011,2025-02-01,Rohit Joshi,Ahmedabad,Laptop,Electronics,60000,1,UPI
+1012,2025-02-02,Pooja Shah,Surat,Smartphone,Electronics,22000,1,Credit Card
+1013,2025-02-03,Arjun Patel,Bangalore,Shoes,Fashion,3000,2,Cash
+1014,2025-02-04,Kavita Mehta,Delhi,Air Conditioner,Appliances,40000,1,Debit Card
+1015,2025-02-05,Deepak Yadav,Mumbai,Headphones,Electronics,1800,3,UPI
+1016,2025-02-06,Meera Iyer,Bangalore,Watch,Fashion,4500,1,Credit Card
+1017,2025-02-07,Suresh Reddy,Ahmedabad,Tablet,Electronics,20000,2,Debit Card
+1018,2025-02-08,Nisha Gupta,Delhi,Refrigerator,Appliances,32000,1,UPI
+1019,2025-02-09,Alok Mishra,Surat,T-shirt,Fashion,900,5,Cash
+1020,2025-02-10,Ritu Saxena,Mumbai,Microwave,Appliances,15000,1,Credit Card
