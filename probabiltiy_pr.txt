@@ -1,0 +1,26 @@
+🚀 PROJECT: “User Purchase Prediction using Probability”
+
+👉 You will simulate + analyze + build a simple ML model
+
+🎯 Project Goal
+
+Given user data:
+
+Did user click?
+Did user purchase?
+
+👉 Find:
+
+Probabilities
+Patterns
+Build simple prediction logic
+🧠 Concepts You Will Use
+Topic	Where Used
+Probability basics	Event calculation
+Conditional probability	P(Buy | Click)
+Bayes theorem	Reverse probability
+Distributions	Data modeling
+Expectation	Average behavior
+Variance	Uncertainty
+Joint probability	Feature relationships
+CLT	Sampling stability

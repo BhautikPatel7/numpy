@@ -139,7 +139,7 @@ df.groupby("month")["total_amount"].sum().plot(kind="line")
 df.groupby("product")["total_amount"].sum().nlargest(5).plot(kind="bar")
 plt.title("Top 5 Products")
 
-df.groupby("payment_method")["total_amount"].sum().plot(kind="pie", autopct="%1.1f%%")
-plt.title("Payment Method Distribution")
+# df.groupby("payment_method")["total_amount"].sum().plot(kind="pie", autopct="%1.1f%%")
+# plt.title("Payment Method Distribution")
 
 plt.show()
